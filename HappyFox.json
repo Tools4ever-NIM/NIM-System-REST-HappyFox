@@ -1,0 +1,406 @@
+{
+    "schema": {
+        "options": {},
+        "crud_objects": {
+            "categories": {
+                "operations": {
+                    "categoriesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/categories/"
+                        },
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "prepopulate_cc": "string*",
+                    "description": "string*",
+                    "time_spent_mandatory": "boolean*",
+                    "public": "boolean*",
+                    "id": "string*",
+                    "name": "string*"
+                }
+            },
+            "contacts": {
+                "operations": {
+                    "contactsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/users/"
+                        },
+                        "processing_options": {
+                            "output_field": "data"
+                        },
+                        "query_parameters": {}
+                    },
+                    "contactCreate": {
+                        "method": "post",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/users/"
+                        },
+                        "query_parameters": {},
+                        "semantics": "create",
+                        "resource_allowance_default": "optional",
+                        "resource_prohibited": [
+                            "primary_phone",
+                            "created_at",
+                            "updated_at",
+                            "pending_tickets_count",
+                            "contact_groups",
+                            "tickets_count",
+                            "id",
+                            "custom_fields"
+
+                        ],
+                        "resource_mandatory": [
+                            "name",
+                            "email"
+                        ]
+                    },
+                    "contactUpdate": {
+                        "method": "patch",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/v2/users/{id}"
+                        },
+                        "query_parameters": {},
+                        "semantics": "update",
+                        "resource_allowance_default": "optional",
+                        "resource_prohibited": [
+                            "primary_phone",
+                            "created_at",
+                            "updated_at",
+                            "pending_tickets_count",
+                            "contact_groups",
+                            "tickets_count",
+                            "id",
+                            "custom_fields"
+                        ],
+                        "resource_mandatory": [
+                            "id"
+                        ]
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "name": "string*",
+                    "primary_phone": "string*",
+                    "phones": [{
+                        "type": "string*",
+                        "number": "string*",
+                        "is_primary": "string*"
+                    }],
+                    "created_at": "string*",
+                    "updated_at": "string*",
+                    "pending_tickets_count": "string*",
+                    "contact_groups": "string*",
+                    "tickets_count": "string*",
+                    "id": "string*",
+                    "email": "string*",
+                    "custom_fields": [
+                        {
+                            "name": "_:string*",
+                            "value": "_:string*",
+                            "value_id": "_:string*",
+                            "type": "_:string*",
+                            "id": "_:string*",
+                            "visible_to_staff_only": "_:string*"
+                        }
+                    ]
+                }
+            },
+            "contactGroups": {
+                "operations": {
+                    "contactGroupsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/contact_groups/"
+                        },
+                        "processing_options": {
+                            "output_field": "data"
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "tagged_domains": "string*",
+                    "id": "string*",
+                    "name": "string*",
+                    "description": "string*"
+                }
+            },
+            "kb_articles": {
+                "operations": {
+                    "kb_articlesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/kb/articles/"
+                        },
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "attachments": "string*",
+                    "language": {
+                        "visible": "_:boolean*",
+                        "enabled": "_:boolean*",
+                        "id": "_:string*",
+                        "name": "_:english"
+                    },
+                    "views": "string*",
+                    "title": "string*",
+                    "section_id": "string*",
+                    "slug": "string*",
+                    "last_updated_at": "string*",
+                    "tags": "string*",
+                    "section_name": "string*",
+                    "full_url": "string*",
+                    "id": "string*",
+                    "contents": "string",
+                    "related_articles": "string*"
+                }
+            },
+            "kb_internalArticles": {
+                "operations": {
+                    "kb_internalArticlesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/kb/internal-articles/"
+                        },
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "attachments": "string*",
+                    "language": {
+                        "visible": "_:boolean*",
+                        "enabled": "_:boolean*",
+                        "id": "_:string*",
+                        "name": "_:english"
+                    },
+                    "views": "string*",
+                    "title": "string*",
+                    "section_id": "string*",
+                    "slug": "string*",
+                    "last_updated_at": "string*",
+                    "tags": "string*",
+                    "section_name": "string*",
+                    "full_url": "string*",
+                    "id": "string*",
+                    "contents": "string",
+                    "related_articles": "string*"
+                }
+            },
+            "kb_sections": {
+                "operations": {
+                    "kb_sectionsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/kb/sections/"
+                        },
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "parent_section_name": "string*",
+                    "articles": "string*",
+                    "description": "string*",
+                    "parent_section_id": "string*",
+                    "id": "string*",
+                    "categories": "string*",
+                    "name": "string*"
+                }
+            },
+            "staff": {
+                "operations": {
+                    "staffList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/staff/"
+                        },
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "name": "string*",
+                    "is_account_admin": "boolean*",
+                    "email": "string*",
+                    "role": {
+                        "name": "_:string*",
+                        "id": "_:string*"
+                    },
+                    "active": "boolean*",
+                    "id": "string*",
+                    "categories": "string*",
+                    "permissions": "string*"
+                }
+            },
+            "statuses": {
+                "operations": {
+                    "statusesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/statuses/"
+                        },
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "name": "string*",
+                    "color": "string*",
+                    "order": "string*",
+                    "default": "boolean*",
+                    "behavior": "string*",
+                    "id": "string*"
+                }
+            },
+            "ticketCustomFields": {
+                "operations": {
+                    "ticketCustomFieldsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/ticket_custom_fields/"
+                        },
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "name": "string*",
+                    "depends_on_choice": "string*",
+                    "required": "boolean*",
+                    "compulsory_on_completed": "boolean*",
+                    "choices": [
+                        {
+                            "text": "string*",
+                            "id": "string*",
+                            "dependant_fields": "string*"
+                        }
+                    ],
+                    "compulsory_on_move": "boolean*",
+                    "type": "string*",
+                    "id": "string*",
+                    "categories": [
+                        {
+                            "category": "string*",
+                            "order": "string*"
+                        }
+                    ],
+                    "visible_to_staff_only": "string*"
+                }
+            },
+            "userCustomFields": {
+                "operations": {
+                    "userCustomFieldsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/user_custom_fields/"
+                        },
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "query_parameters": {}
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "name": "string*",
+                    "depends_on_choice": "string*",
+                    "required": "boolean*",
+                    "id": "string*",
+                    "choices": "string*",
+                    "type": "string*",
+                    "order": "string*",
+                    "visible_to_staff_only": "boolean*"
+                }
+            }
+        }
+    },
+    "rest": {
+        "config": {
+            "baseUrl": "https://{tenant_id}/api/1.1/json",
+            "get": {
+                "query_parameters": {
+                },
+                "pagination":{
+                    "mode":"generic",
+                    "path":[],
+                    "params":{
+                        "page":"{page_number}",
+                        "size":"50"
+                    }
+                }
+            },
+            "authentication": "basic_auth",
+            "call_handling": "generic",
+            "test_connection": {
+                "url": "/statuses/"
+            },
+            "accept": "application/json",
+            "retry": [
+                {
+                    "type": "statusCode",
+                    "statusCode": 429,
+                    "retry": {
+                        "type": "simple",
+                        "maxCount": 15,
+                        "waitTime": 60
+                    }
+                },
+                {
+                    "type": "connectionError"
+                }
+            ]
+        }
+    },
+    "connection": {
+        "items": [
+            {
+                "name": "tenant_id",
+                "type": "textbox",
+                "label": "Tenant URL:",
+                "value": ""
+              }
+              
+        ]
+    }
+}
