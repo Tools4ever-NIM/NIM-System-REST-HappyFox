@@ -363,6 +363,7 @@
                 },
                 "pagination":{
                     "mode":"generic",
+                    "totalAttribute": "page_info.last_index",
                     "path":[],
                     "params":{
                         "page":"{page_number}",
